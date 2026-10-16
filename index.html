@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texture Settings Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <!-- Background scene -->
+      <div class="scene">
+        <img src="assets/bg.png" alt="" class="scene-bg" />
+        <div class="selection" id="selection"></div>
+        <div class="move-gizmo" id="moveGizmo" hidden>
+          <img src="assets/move.svg" alt="" width="24" height="24" />
+        </div>
+      </div>
+
+      <!-- Top header -->
+      <header class="header">
+        <div class="header-left">
+          <div class="pill group-pill">
+            <button class="icon-btn" type="button" aria-label="Back">
+              <img src="assets/arrow-left.svg" alt="" width="24" height="24" />
+            </button>
+            <span class="v-divider"></span>
+            <button class="text-btn" type="button">
+              <img src="assets/cloud.svg" alt="" width="24" height="24" />
+              <span>AI Upload - 2026-05-26 08:12:09</span>
+              <img src="assets/chevron-bottom.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+          <button class="pill text-btn" type="button">
+            <img src="assets/floor.svg" alt="" width="24" height="24" />
+            <span>Floor 1</span>
+            <img src="assets/chevron-bottom.svg" alt="" width="24" height="24" />
+          </button>
+        </div>
+
+        <div class="segment">
+          <button class="segment-item" type="button">2D</button>
+          <button class="segment-item active" type="button">3D</button>
+        </div>
+
+        <div class="header-right">
+          <button class="pill text-btn" type="button">
+            <img src="assets/camera.svg" alt="" width="24" height="24" />
+            <span>Render</span>
+          </button>
+          <button class="pill icon-only" type="button" aria-label="Ruler">
+            <img src="assets/ruler.svg" alt="" width="24" height="24" />
+          </button>
+          <button class="pill icon-only" type="button" aria-label="Comments">
+            <img src="assets/comment.svg" alt="" width="24" height="24" />
+          </button>
+          <button class="pill icon-only" type="button" aria-label="Add">
+            <img src="assets/plus.svg" alt="" width="24" height="24" />
+          </button>
+          <button class="pill icon-only green" type="button" aria-label="Settings">
+            <img src="assets/settings.svg" alt="" width="24" height="24" />
+          </button>
+          <button class="pro-btn" type="button">Switch to Pro</button>
+          <button class="avatar-pill" type="button">
+            <span class="avatar">H</span>
+            <img src="assets/chevron-top.svg" alt="" width="16" height="16" class="flip" />
+          </button>
+          <button class="pill text-btn green" type="button">
+            <img src="assets/share.svg" alt="" width="24" height="24" />
+            <span>Share</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Left rail -->
+      <aside class="left-rail">
+        <button type="button"><img src="assets/search.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/create.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/armchairs.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/trees.svg" alt="" width="24" height="24" /></button>
+        <span class="rail-line"></span>
+        <button type="button" class="plus3d"><img src="assets/plus3d.svg" alt="" width="32" height="32" /></button>
+      </aside>
+
+      <!-- Bottom history -->
+      <div class="history-bar">
+        <button type="button"><img src="assets/history-btn.svg" alt="" width="24" height="24" /></button>
+        <span class="v-divider"></span>
+        <button type="button"><img src="assets/undo.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/redo.svg" alt="" width="24" height="24" /></button>
+      </div>
+
+      <!-- Area badge -->
+      <div class="area-badge">
+        <img src="assets/selection.svg" alt="" width="24" height="24" />
+        <span>1394 ft<sup>2</sup></span>
+      </div>
+
+      <!-- Zoom controls -->
+      <div class="zoom-stack">
+        <button type="button"><img src="assets/help.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/fullscreen.svg" alt="" width="24" height="24" /></button>
+        <button type="button"><img src="assets/center.svg" alt="" width="24" height="24" /></button>
+        <div class="zoom-group">
+          <button type="button"><img src="assets/zoomin.svg" alt="" width="24" height="24" /></button>
+          <button type="button"><img src="assets/zoomout.svg" alt="" width="24" height="24" /></button>
+        </div>
+      </div>
+
+      <!-- AI button -->
+      <button class="ai-btn" type="button" aria-label="AI">
+        <img src="assets/ai.svg" alt="" width="24" height="24" />
+      </button>
+
+      <!-- Pick texture panel -->
+      <section class="pick-panel" id="pickPanel">
+        <div class="pick-header">
+          <button class="back-btn" type="button">
+            <img src="assets/back.svg" alt="" width="24" height="24" />
+            Back
+          </button>
+          <button class="pick-title-btn" type="button">
+            <img src="assets/pipet.svg" alt="" width="24" height="24" />
+            Pick texture
+          </button>
+          <button class="close-btn" type="button" aria-label="Close">
+            <img src="assets/close.svg" alt="" width="24" height="24" />
+          </button>
+        </div>
+
+        <div class="pick-body">
+          <nav class="cat-nav">
+            <button class="nav-row" type="button">
+              <img src="assets/textures.svg" alt="" width="24" height="24" />
+              <span>My textures</span>
+            </button>
+            <button class="nav-row" type="button">
+              <img src="assets/viewplane.svg" alt="" width="24" height="24" />
+              <span>Project</span>
+            </button>
+            <button class="nav-row" type="button">
+              <img src="assets/history.svg" alt="" width="24" height="24" />
+              <span>Recently used</span>
+            </button>
+
+            <div class="cat-list">
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d5d5d5"></span>Carpet</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#804b20"></span>Laminate</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#ad8562"></span>Linoleum</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Plaster</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Parquet</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Brick</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Stone</button>
+              <button class="cat-item active" type="button"><span class="swatch" style="background:#d9d9d9"></span>Wallpapers</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Tile</button>
+              <button class="cat-item" type="button"><span class="swatch" style="background:#d9d9d9"></span>Wood</button>
+            </div>
+          </nav>
+
+          <div class="tex-grid">
+            <button class="tex" style="background:#cce9d6" type="button"></button>
+            <button class="tex" style="background:#b0ddfd" type="button"></button>
+            <button class="tex" style="background:#f4c5f5" type="button"></button>
+            <button class="tex selected" style="background:#b0ddfd" type="button"></button>
+            <button class="tex" style="background:#f4c5f5" type="button"></button>
+            <button class="tex" style="background:#cce9d6" type="button"></button>
+            <button class="tex" style="background:#cce9d6" type="button"></button>
+            <button class="tex" style="background:#b0ddfd" type="button"></button>
+          </div>
+        </div>
+
+        <!-- Texture settings (collapsed → expanded on click) -->
+        <aside class="texture-settings collapsed" id="textureSettings">
+          <button class="settings-handle" id="settingsHandle" type="button" aria-label="Expand texture settings" title="Click to open settings">
+            <span class="handle-bar"></span>
+          </button>
+
+          <div class="settings-head">
+            <h2>Texture settings</h2>
+            <button class="reset-btn" type="button">
+              <img src="assets/refresh.svg" alt="" width="24" height="24" />
+              Reset
+            </button>
+          </div>
+
+          <div class="settings-body">
+            <div class="field-row tint-row">
+              <span class="label">Tint color</span>
+              <button class="tint-preview" type="button" style="background:#ecd9f5" aria-label="Custom tint"></button>
+            </div>
+            <div class="color-row">
+              <button class="color-swatch no-color" type="button" aria-label="No color">
+                <img src="assets/no-color.svg" alt="" width="26" height="26" />
+              </button>
+              <button class="color-swatch" style="background:#000" type="button" aria-label="Black"></button>
+              <button class="color-swatch" style="background:#fff" type="button" aria-label="White"></button>
+              <button class="color-swatch" style="background:#ea4631" type="button" aria-label="Red"></button>
+              <button class="color-swatch" style="background:#5ecf38" type="button" aria-label="Green"></button>
+              <button class="color-swatch" style="background:#faa13a" type="button" aria-label="Orange"></button>
+              <button class="color-swatch" style="background:#b839dc" type="button" aria-label="Purple"></button>
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-top">
+                <span class="label">Texture scale, %</span>
+                <input class="num-input" type="text" value="100" readonly />
+              </div>
+              <div class="slider-track">
+                <div class="slider-fill" style="width:20%"></div>
+                <div class="slider-knob" style="left:20%">
+                  <img src="assets/slider-knob.svg" alt="" width="20" height="20" />
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-top">
+                <span class="label">Texture scale</span>
+                <div class="num-input deg"><span>0</span><span class="unit">°</span></div>
+              </div>
+              <div class="slider-track">
+                <div class="slider-fill" style="width:20%"></div>
+                <div class="slider-knob" style="left:20%">
+                  <img src="assets/slider-knob.svg" alt="" width="20" height="20" />
+                </div>
+              </div>
+            </div>
+
+            <div class="position-block">
+              <div class="position-row">
+                <span class="label">Texture position</span>
+                <button class="toggle" id="positionToggle" type="button" aria-pressed="false" aria-label="Toggle texture position">
+                  <img class="toggle-off" src="assets/toggle-off.svg" alt="" />
+                  <img class="toggle-on" src="assets/toggle-on.svg" alt="" />
+                </button>
+              </div>
+              <p class="hint">Move the texture to align it on the surface</p>
+            </div>
+
+            <div class="xy-row" id="xyRow" hidden aria-hidden="true">
+              <label class="xy-field">
+                <span>X</span>
+                <input type="text" value="0" readonly />
+              </label>
+              <label class="xy-field">
+                <span>Y</span>
+                <input type="text" value="0" readonly />
+              </label>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

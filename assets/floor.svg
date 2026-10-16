@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="floor">
+<g id="shape">
+<use xlink:href="#stroke0_0_1196" fill="white"/>
+<mask id="stroke1_0_1196" fill="white">
+<use xlink:href="#stroke0_0_1196"/>
+</mask>
+<path d="M17.2517 5.2899L13.4273 3.34402C12.5387 2.89189 11.469 2.89189 10.5804 3.34402L6.7561 5.2899L3.77434 6.76667C2.74707 7.30708 2.74707 8.70277 3.77434 9.24317L6.7561 10.72L10.5804 12.6658C11.469 13.118 12.5387 13.118 13.4273 12.6658L17.2517 10.72L20.2334 9.24317C21.2607 8.70277 21.2607 7.30708 20.2334 6.76667L17.2517 5.2899Z" stroke-width="4" stroke="#393939" mask="url(#stroke1_0_1196)"/>
+</g>
+<path id="shape_2" d="M4.00722 11.9878L11.5436 15.837C11.829 15.9818 12.1664 15.9813 12.4513 15.8356L20.0021 11.9861" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#747474"/>
+<path id="shape_3" d="M4.00775 16.0184L11.5669 19.8896C11.8489 20.0298 12.1806 20.0291 12.4619 19.8875L20.0097 16.0226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#C4C4C4"/>
+</g>
+<defs>
+<path id="stroke0_0_1196" d="M10.5804 3.34402C11.469 2.89189 12.5387 2.89189 13.4273 3.34402L17.2517 5.2899L20.2334 6.76667C21.2607 7.30708 21.2607 8.70277 20.2334 9.24317L17.2517 10.72L13.4273 12.6658C12.5387 13.118 11.469 13.118 10.5804 12.6658L6.7561 10.72L3.77434 9.24317C2.74707 8.70277 2.74707 7.30708 3.77434 6.76667L6.7561 5.2899L10.5804 3.34402Z"/>
+</defs>
+</svg>
